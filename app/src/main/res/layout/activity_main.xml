@@ -1,19 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/colorAccent">
+
+            <ImageView
+                android:layout_width="@dimen/list_item_height"
+                android:layout_height="@dimen/list_item_height"
+                android:background="@mipmap/world" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:text="@string/world_news"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="30sp"
+                android:id="@+id/world_news"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/colorAccent">
+
+            <ImageView
+                android:layout_width="@dimen/list_item_height"
+                android:layout_height="@dimen/list_item_height"
+                android:background="@mipmap/politics" />
+
+            <TextView
+                android:id="@+id/politic_news"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:text="@string/politics"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/colorAccent">
+
+            <ImageView
+                android:layout_width="@dimen/list_item_height"
+                android:layout_height="@dimen/list_item_height"
+                android:background="@mipmap/business" />
+
+            <TextView
+                android:id="@+id/business_news"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:text="@string/business"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/colorAccent">
+
+            <ImageView
+                android:layout_width="@dimen/list_item_height"
+                android:layout_height="@dimen/list_item_height"
+                android:background="@mipmap/science" />
+
+            <TextView
+                android:id="@+id/science_news"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:text="@string/sience"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/colorAccent">
+
+            <ImageView
+                android:layout_width="@dimen/list_item_height"
+                android:layout_height="@dimen/list_item_height"
+                android:background="@mipmap/sport" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:text="@string/sports"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="30sp"
+                android:id="@+id/sport_news"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/colorAccent">
+
+            <ImageView
+                android:layout_width="@dimen/list_item_height"
+                android:layout_height="@dimen/list_item_height"
+                android:background="@mipmap/games" />
+
+            <TextView
+                android:id="@+id/games_news"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:text="@string/games"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/colorAccent">
+
+            <ImageView
+
+                android:layout_width="@dimen/list_item_height"
+                android:layout_height="@dimen/list_item_height"
+                android:background="@mipmap/music" />
+
+            <TextView
+                android:id="@+id/music_news"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:text="@string/music"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="30sp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
