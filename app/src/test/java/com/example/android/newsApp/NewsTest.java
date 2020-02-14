@@ -16,7 +16,7 @@ public class NewsTest {
 
 
     @Test
-    public void getSectionName() {
+    public void getNews() {
 
         assertEquals("test",news.getSectionName());
         assertEquals("test",news.getWebUrl());
