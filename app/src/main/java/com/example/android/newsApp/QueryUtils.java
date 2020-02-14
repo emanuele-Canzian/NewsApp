@@ -21,20 +21,19 @@ public class QueryUtils {
 
     public static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
-    private QueryUtils(){
+    private QueryUtils() {
 
     }
 
 
-    public static ArrayList<News> fetchNewsData(String requestUrl){
+    public static ArrayList<News> fetchNewsData(String requestUrl) {
         URL url = createUrl(requestUrl);
 
         String jsonResponse = null;
         try {
             jsonResponse = makeHttpRequest(url);
-        }
-        catch (IOException e ){
-            Log.e(LOG_TAG,"Problem making the HTTP request.",e);
+        } catch (IOException e) {
+            Log.e(LOG_TAG, "Problem making the HTTP request.", e);
         }
 
         ArrayList<News> news = extractFeaturesFromJson(jsonResponse);
@@ -45,19 +44,19 @@ public class QueryUtils {
 
     private static URL createUrl(String stringUrl) {
         URL url = null;
-        try{
+        try {
             url = new URL(stringUrl);
-        } catch (MalformedURLException e ){
-            Log.e(LOG_TAG,"Problem buiding the URL",e);
+        } catch (MalformedURLException e) {
+            Log.e(LOG_TAG, "Problem buiding the URL", e);
         }
         return url;
     }
 
 
-    private static String makeHttpRequest(URL url) throws IOException{
+    private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
 
-        if (url == null){
+        if (url == null) {
             return jsonResponse;
         }
         HttpURLConnection urlConnection = null;
@@ -70,20 +69,19 @@ public class QueryUtils {
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
 
-            if (urlConnection.getResponseCode() == 200){
+            if (urlConnection.getResponseCode() == 200) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
-            }
-            else {
+            } else {
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
-        } catch (IOException e){
-            Log.e(LOG_TAG, "Problem retrieving the News JSON result.",e);
-        }finally {
-            if (urlConnection != null){
+        } catch (IOException e) {
+            Log.e(LOG_TAG, "Problem retrieving the News JSON result.", e);
+        } finally {
+            if (urlConnection != null) {
                 urlConnection.disconnect();
             }
-            if (inputStream != null){
+            if (inputStream != null) {
                 inputStream.close();
             }
 
@@ -93,11 +91,11 @@ public class QueryUtils {
 
     private static String readFromStream(InputStream inputStream) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
-        if (inputStream != null){
+        if (inputStream != null) {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
             BufferedReader reader = new BufferedReader(inputStreamReader);
             String line = reader.readLine();
-            while (line != null){
+            while (line != null) {
                 stringBuilder.append(line);
                 line = reader.readLine();
             }
@@ -105,9 +103,9 @@ public class QueryUtils {
         return stringBuilder.toString();
     }
 
-    public static ArrayList<News> extractFeaturesFromJson(String newsJSON){
+    public static ArrayList<News> extractFeaturesFromJson(String newsJSON) {
 
-        if (TextUtils.isEmpty(newsJSON)){
+        if (TextUtils.isEmpty(newsJSON)) {
             return null;
         }
 
@@ -120,22 +118,22 @@ public class QueryUtils {
 
             JSONArray results = response.getJSONArray("results");
 
-            for (int i = 0;i < response.length(); i++){
+            for (int i = 0; i < response.length(); i++) {
 
                 JSONObject currentNews = results.getJSONObject(i);
 
-                String sectionName =  currentNews.getString("sectionName");
+                String sectionName = currentNews.getString("sectionName");
                 String webTitle = currentNews.getString("webTitle");
                 String dateTime = currentNews.getString("webPublicationDate");
                 String webUrl = currentNews.getString("webUrl");
 
-                News newses = new News(sectionName,webTitle,dateTime,webUrl);
+                News newses = new News(sectionName, webTitle, dateTime, webUrl);
 
                 news.add(newses);
             }
 
         } catch (JSONException e) {
-            Log.e("QueryUtils","Problem parsing the news JSON response");
+            Log.e("QueryUtils", "Problem parsing the news JSON response");
         }
         return news;
     }

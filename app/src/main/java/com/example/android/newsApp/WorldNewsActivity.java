@@ -74,10 +74,8 @@ public class WorldNewsActivity extends AppCompatActivity implements LoaderCallba
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
        if (networkInfo != null && networkInfo.isConnected()) {
-
+            View loadingIndicator = findViewById(R.id.loading_indicator);
             LoaderManager loaderManager = getLoaderManager();
-
-
             loaderManager.initLoader(NEWS_LOADER_ID, null, this);
         } else {
 
